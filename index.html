@@ -13,9 +13,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
     
+    <!-- Lenis for Smooth Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <span class="loader-text">Ganiyani</span>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
     <header class="site-header">
         <nav class="navbar" aria-label="Main navigation">
             <div class="nav-left">
@@ -78,6 +93,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>Premium Quality Tiles</span>
+            <span class="separator">•</span>
+            <span>Export Worldwide</span>
+            <span class="separator">•</span>
+            <span>Innovative Designs</span>
+            <span class="separator">•</span>
+            <span>Sustainable Manufacturing</span>
+            <span class="separator">•</span>
+            <span>Premium Quality Tiles</span>
+            <span class="separator">•</span>
+            <span>Export Worldwide</span>
+            <span class="separator">•</span>
+            <span>Innovative Designs</span>
+            <span class="separator">•</span>
+            <span>Sustainable Manufacturing</span>
+            <span class="separator">•</span>
+        </div>
+    </div>
 
     <section id="about" class="about" aria-labelledby="about-heading">
         <div class="container about-grid">
@@ -348,7 +385,10 @@
         <div class="footer-bottom">
             <span>2025 Ganiyani Enterprise | Design by canstart technology</span>
         </div>
-    </footer>
-    <script src="main.js" defer></script>
+    </footer>    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+        <script src="main.js" defer></script>
 </body>
 </html>

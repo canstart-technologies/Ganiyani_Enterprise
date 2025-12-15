@@ -1,3 +1,79 @@
+// Preloader
+window.addEventListener('load', () => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            // Trigger hero animations after preloader is gone
+            // (Optional: you can dispatch a custom event here if needed)
+        }, 1500); // Minimum display time
+    }
+});
+
+// Initialize Lenis for smooth scrolling
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+// Register GSAP Plugins
+gsap.registerPlugin(ScrollTrigger);
+
+// Custom Cursor Logic
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+if (cursorDot && cursorOutline) {
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        // Dot follows instantly
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // Outline follows with delay (using GSAP for smoothness)
+        gsap.to(cursorOutline, {
+            x: posX,
+            y: posY,
+            duration: 0.15,
+            ease: "power2.out"
+        });
+    });
+
+    // Hover effects
+    const hoverables = document.querySelectorAll('a, button, .btn, .texture-btn');
+    hoverables.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            gsap.to(cursorOutline, {
+                scale: 1.5,
+                backgroundColor: "rgba(196, 154, 87, 0.1)",
+                duration: 0.2
+            });
+        });
+        el.addEventListener('mouseleave', () => {
+            gsap.to(cursorOutline, {
+                scale: 1,
+                backgroundColor: "transparent",
+                duration: 0.2
+            });
+        });
+    });
+}
+
 // 0. Navbar Scroll Effect (Hide/Show on Hero)
 (function() {
   const header = document.querySelector('.site-header');
@@ -54,102 +130,38 @@
     });
   })();
   
-  // 2. Hero Slider
-  (function() {
-    const slider = document.querySelector('.hero-slider');
-    if (!slider) return;
-  
-    const slides = Array.from(slider.querySelectorAll('.slide'));
-    const prevBtn = slider.querySelector('.prev');
-    const nextBtn = slider.querySelector('.next');
-    const dotsContainer = slider.querySelector('.slider-dots');
-    
-    const intervalMs = Number(slider.dataset.interval) || 5000;
-    const autoplay = slider.dataset.autoplay === 'true';
-    let index = 0; 
-    let timer = null;
-  
-    // Create Dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      if (i === 0) dot.setAttribute('aria-selected', 'true');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-    const dots = Array.from(dotsContainer.children);
-  
-    function goToSlide(i) {
-      // Handle wrapping
-      if (i < 0) i = slides.length - 1;
-      if (i >= slides.length) i = 0;
-  
-      // Update classes
-      slides[index].classList.remove('active');
-      dots[index].setAttribute('aria-selected', 'false');
-      
-      index = i;
-      
-      slides[index].classList.add('active');
-      dots[index].setAttribute('aria-selected', 'true');
-      
-      resetAutoplay();
-    }
-  
-    function next() { goToSlide(index + 1); }
-    function prev() { goToSlide(index - 1); }
-  
-    // Listeners
-    if(nextBtn) nextBtn.addEventListener('click', next);
-    if(prevBtn) prevBtn.addEventListener('click', prev);
-  
-    // Autoplay Logic
-    function startAutoplay() {
-      if (!autoplay) return;
-      timer = setInterval(next, intervalMs);
-    }
-    function resetAutoplay() {
-      if (!autoplay) return;
-      clearInterval(timer); 
-      startAutoplay();
-    }
-    
-    startAutoplay();
-  })();
-  
   // 3. Number Counter Animation (Stats)
   (function() {
     const values = document.querySelectorAll('.stats .value');
     if (!values.length) return;
   
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.target);
-          const suffix = el.dataset.suffix || '';
-          
-          let start = 0;
-          const duration = 2000;
-          const increment = target / (duration / 16); // 60fps
-          
-          function updateCount() {
-            start += increment;
-            if (start < target) {
-              el.textContent = Math.ceil(start) + suffix;
-              requestAnimationFrame(updateCount);
-            } else {
-              el.textContent = target + suffix;
+    // Use ScrollTrigger for stats
+    values.forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        
+        ScrollTrigger.create({
+            trigger: el,
+            start: "top 85%",
+            once: true,
+            onEnter: () => {
+                let start = 0;
+                const duration = 2000;
+                const increment = target / (duration / 16); // 60fps
+                
+                function updateCount() {
+                    start += increment;
+                    if (start < target) {
+                        el.textContent = Math.ceil(start) + suffix;
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        el.textContent = target + suffix;
+                    }
+                }
+                updateCount();
             }
-          }
-          
-          updateCount();
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-  
-    values.forEach(v => observer.observe(v));
+        });
+    });
   })();
 
   // 4. New Interactive Hero Section
@@ -204,11 +216,14 @@
     const heroLabel = document.getElementById('hero-label');
     const heroBtns = document.getElementById('hero-btns');
     const heroVibe = document.getElementById('hero-vibe');
+    const heroContentWrapper = document.querySelector('.hero-content-wrapper');
 
     if (!heroBgWrapper || !textureGrid) return; // Hero not present
 
     let currentIndex = 0;
     let autoRotateInterval;
+    const ROTATION_TIME = 5000;
+    let startTime = Date.now();
 
     function initHero() {
       tileData.forEach((tile, index) => {
@@ -223,6 +238,9 @@
         btn.innerHTML = `
           <img src="${tile.thumb}" alt="${tile.name}">
           <span class="texture-tooltip">${tile.name}</span>
+          <svg class="progress-ring" width="90" height="90">
+             <circle cx="45" cy="45" r="40"></circle>
+          </svg>
         `;
         btn.onclick = () => manualChange(index);
         textureGrid.appendChild(btn);
@@ -230,7 +248,31 @@
 
       // Set initial hero content
       setHeroContent(0);
+      
+      // Initial Animation
+      animateHeroContent();
+      
       startAutoRotate();
+      requestAnimationFrame(updateProgress);
+
+      // Mouse Parallax Removed as per request
+    }
+
+    function updateProgress() {
+        if (!autoRotateInterval) return;
+        
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / ROTATION_TIME, 1);
+        const offset = 251 - (251 * progress);
+        
+        const activeBtn = document.querySelector('.texture-btn.active circle');
+        if (activeBtn) {
+            activeBtn.style.strokeDashoffset = offset;
+        }
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateProgress);
+        }
     }
 
     function setHeroContent(index) {
@@ -244,6 +286,32 @@
         heroVibe.innerHTML = 'Bring your vision to life with tiles that inspire. <br>Discover beauty, durability, and a touch of luxury for every space.';
         heroVibe.style.marginTop = '2.2rem';
       }
+      
+      // Split Text for Title (Simple word split)
+      const words = heroTitle.textContent.split(' ');
+      heroTitle.innerHTML = words.map(word => `<span style="display:inline-block">${word}&nbsp;</span>`).join('');
+    }
+
+    function animateHeroContent() {
+        const tl = gsap.timeline();
+        
+        // Animate Label
+        tl.fromTo(heroLabel, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
+        
+        // Animate Title Words
+        const titleWords = heroTitle.querySelectorAll('span');
+        tl.fromTo(titleWords, 
+            { y: 50, opacity: 0, rotationX: 45 },
+            { y: 0, opacity: 1, rotationX: 0, duration: 1, stagger: 0.1, ease: "back.out(1.7)" },
+            "-=0.6"
+        );
+        
+        // Animate Description & Buttons
+        tl.fromTo([heroDesc, heroBtns, heroVibe], 
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" },
+            "-=0.8"
+        );
     }
 
     function changeSlide(index) {
@@ -252,38 +320,78 @@
       bgs[index].classList.add('active');
 
       const btns = document.querySelectorAll('.texture-btn');
-      btns.forEach(btn => btn.classList.remove('active'));
+      btns.forEach(btn => {
+          btn.classList.remove('active');
+          // Reset progress ring
+          const circle = btn.querySelector('circle');
+          if(circle) circle.style.strokeDashoffset = 251;
+      });
       btns[index].classList.add('active');
 
-      const textElements = [heroTitle, heroDesc, heroLabel];
-      textElements.forEach(el => {
-        el.style.animation = 'none';
-        el.offsetHeight;
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
+      // GSAP Transition for Text
+      const tl = gsap.timeline();
+      
+      // Out
+      tl.to([heroLabel, heroTitle, heroDesc, heroBtns, heroVibe], {
+          y: -20,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "power2.in",
+          onComplete: () => {
+              setHeroContent(index);
+              animateHeroContent(); // Use the new animation function
+          }
       });
 
-      setTimeout(() => {
-        setHeroContent(index);
-        heroLabel.style.animation = 'fadeUpHero 0.8s forwards 0.1s';
-        heroTitle.style.animation = 'fadeUpHero 0.8s forwards 0.2s';
-        heroDesc.style.animation = 'fadeUpHero 0.8s forwards 0.3s';
-      }, 50);
-
       currentIndex = index;
+      startTime = Date.now();
+      requestAnimationFrame(updateProgress);
     }
 
     function manualChange(index) {
       clearInterval(autoRotateInterval);
+      autoRotateInterval = null; // Stop auto rotation on manual interaction
       changeSlide(index);
     }
 
     function startAutoRotate() {
+      startTime = Date.now();
       autoRotateInterval = setInterval(() => {
         let nextIndex = (currentIndex + 1) % tileData.length;
         changeSlide(nextIndex);
-      }, 4000);
+      }, ROTATION_TIME);
     }
 
     initHero();
   })();
+
+// 5. General Scroll Animations (Fade Up)
+gsap.utils.toArray('section h2, section p, .about-media, .product-card').forEach(element => {
+    gsap.from(element, {
+        scrollTrigger: {
+            trigger: element,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+});
+
+// 6. Parallax Effect for About Image
+const aboutImage = document.querySelector('.about-media img');
+if (aboutImage) {
+    gsap.to(aboutImage, {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1
+        },
+        y: -50,
+        ease: "none"
+    });
+}

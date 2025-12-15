@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ganiyani Enterprise is a premium manufacturer and exporter of Wall Tiles, Parking Tiles, and Porcelain Tiles. Discover our wide range of high-quality tiles for every space.">
+    <meta name="author" content="Ganiyani Enterprise">
+    <title>Ganiyani Enterprise | Premium Tiles</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-left">
+                <a href="#" class="logo" aria-label="Neon Tile Home">
+                    <span class="logo-mark">Ganiyani</span><span class="logo-sub">Enterprise</span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a role="menuitem" href="#story">Our Story</a></li>
+                <li class="has-dropdown" role="none">
+                    <button role="menuitem" aria-haspopup="true" aria-expanded="false">Products <span class="caret">+</span></button>
+                    <ul class="dropdown" aria-label="Products submenu">
+                        <li><a href="#wall-tiles">Wall Tiles</a></li>
+                        <li><a href="#floor-tiles">Floor Tiles</a></li>
+                        <li><a href="#3d-tiles">3D Tiles</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a role="menuitem" href="#catalogue">E-Catalogue</a></li>
+                <li role="none"><a role="menuitem" href="#export">Export</a></li>
+                <li class="has-dropdown" role="none">
+                    <button role="menuitem" aria-haspopup="true" aria-expanded="false">More <span class="caret">+</span></button>
+                    <ul class="dropdown" aria-label="More submenu">
+                        <li><a href="#blogs">Blogs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+                <li role="none" class="icon-item">
+                    <button class="icon-btn" aria-label="Search" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-new" id="home">
+        <!-- Background Layers (Populated by JS) -->
+        <div class="hero-bg-container" id="hero-bg-wrapper">
+            <!-- Images will be injected here -->
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-wrapper container">
+            <!-- Left: Dynamic Text (Populated by JS) -->
+            <div class="hero-text-area">
+                <span class="hero-label" id="hero-label"></span>
+                <h1 class="hero-title" id="hero-title"></h1>
+                <p class="hero-desc" id="hero-desc"></p>
+                <div class="hero-btns" id="hero-btns"></div>
+                <p class="hero-vibe" id="hero-vibe"></p>
+            </div>
+
+            <!-- Right: Interactive Texture Palette (Populated by JS) -->
+            <div class="hero-interaction-area">
+                <div class="texture-palette">
+                    <span class="palette-label">Select Texture</span>
+                    <div class="texture-grid" id="texture-grid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-heading">
+        <div class="container about-grid">
+            <div class="about-media">
+                <figure class="poster" aria-label="Decorative showcase image">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?auto=format&fit=crop&w=1200&q=60" alt="Elevate spaces with tile innovation - large slab on stand" />
+                    <span class="vertical-brand" aria-hidden="true">NEON</span>
+                    <img class="circle-sample" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=400&q=60" alt="Marble sample close-up" />
+                </figure>
+            </div>
+
+            <div class="about-content">
+                <span class="badge">About Us</span>
+                <h2 id="about-heading">Innovative Tile Solutions<br />For Modern Spaces</h2>
+                <p>
+                    At Neon Tile, we pride ourselves on delivering tile solutions that transform spaces into
+                    stunning works of art. With a focus on innovation, quality, and sustainability, we cater to
+                    diverse needs with our meticulously crafted range of Wall Tiles, Parking Tiles, Porcelain Tiles,
+                    and PGVT.
+                </p>
+                <p>
+                    Our commitment to excellence drives us to combine cutting‑edge technology with thoughtful
+                    design.
+                </p>
+                <a href="#story" class="btn blue">Read Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" aria-label="Key company metrics">
+        <div class="container stats-grid">
+            <article class="stat" aria-label="Years of Experience">
+                <div class="icon" aria-hidden="true">
+                    <i class="fa-regular fa-clock fa-2x"></i>
+                </div>
+                <div class="value" data-target="14" data-suffix="+">0</div>
+                <p class="label">Years of Experience</p>
+            </article>
+
+            <article class="stat" aria-label="Tiles Design">
+                <div class="icon" aria-hidden="true">
+                    <i class="fa-solid fa-layer-group fa-2x"></i>
+                </div>
+                <div class="value" data-target="2000" data-suffix="+">0</div>
+                <p class="label">Tiles Design</p>
+            </article>
+
+            <article class="stat" aria-label="Happy Customers">
+                <div class="icon" aria-hidden="true">
+                    <i class="fa-regular fa-face-smile fa-2x"></i>
+                </div>
+                <div class="value" data-target="100" data-suffix="%">0</div>
+                <p class="label">Happy Customers</p>
+            </article>
+
+            <article class="stat" aria-label="Export Countries">
+                <div class="icon" aria-hidden="true">
+                    <i class="fa-solid fa-globe fa-2x"></i>
+                </div>
+                <div class="value" data-target="34" data-suffix="+">0</div>
+                <p class="label">Export Countries</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="collection" class="collection" aria-labelledby="collection-heading">
+        <div class="container">
+            <div class="section-head">
+                <span class="badge light">Collection</span>
+                <h2 id="collection-heading">Exclusive Collections</h2>
+            </div>
+
+            <div class="collection-grid">
+                <a href="#" class="collection-card main-item" aria-label="Living room marble collection">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1616597096190-0ef1d6400ed1?auto=format&fit=crop&w=1200&q=60" alt="Living room interior with glossy marble floor" />
+                    <div class="card-overlay">
+                        <h3>Premium Marble</h3>
+                        <span>View Series</span>
+                    </div>
+                </a>
+                <a href="#" class="collection-card" aria-label="Study floor tiles collection">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1598300183873-33f47cb2e2d0?auto=format&fit=crop&w=1200&q=60" alt="Home office with soft beige textured floor tiles" />
+                </a>
+                <a href="#" class="collection-card" aria-label="3D wall tile collection">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1616597096112-2cf953a2d2a1?auto=format&fit=crop&w=1200&q=60" alt="Seating area with large format stone wall tiles" />
+                </a>
+                <a href="#" class="collection-card wide-item" aria-label="Retail space porcelain tiles collection">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=60" alt="Boutique retail with polished porcelain floor" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="core-values" class="core-values" aria-labelledby="core-values-heading">
+        <div class="container">
+            <div class="section-head">
+                <span class="badge light">Commit to Quality</span>
+                <h2 id="core-values-heading">Our Core Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <i class="fa-solid fa-bullseye fa-3x"></i>
+                    </div>
+                    <h3>Mission</h3>
+                    <p>To redefine the global tile industry by delivering innovative, high-quality products while promoting sustainability.</p>
+                </div>
+                <div class="value-card active">
+                    <div class="value-icon" aria-hidden="true">
+                        <i class="fa-solid fa-eye fa-3x"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>To establish Neon Tile as a globally trusted brand, creating environments that inspire and endure.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <i class="fa-solid fa-gem fa-3x"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>Quality is our foundation. We ensure every product combines aesthetics, durability, and functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tile-features" class="tile-features" aria-labelledby="tile-features-heading">
+        <div class="container tile-features-grid">
+            <div class="tile-features-content">
+                <div class="section-head">
+                    <span class="badge light">Product Features</span>
+                    <h2 id="tile-features-heading">Why Choose Our Tiles?</h2>
+                </div>
+                <div class="features-list">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <div class="feature-title">Water Proof</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                        <div class="feature-title">Non-Porous</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-snowflake"></i></div>
+                        <div class="feature-title">Frost Proof</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-regular fa-sun"></i></div>
+                        <div class="feature-title">UV Protection</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-wine-glass-empty"></i></div>
+                        <div class="feature-title">Stain Resistant</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-hammer"></i></div>
+                        <div class="feature-title">High Durability</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile-features-image">
+                <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?auto=format&fit=crop&w=600&q=60" alt="Tile sample with nature background" />
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+        <div class="testimonial-bg">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=60" alt="Marble background" />
+        </div>
+        <div class="container testimonials-grid">
+            <div class="testimonials-content">
+                <div class="section-head">
+                    <span class="badge light">Testimonials</span>
+                    <h2 id="testimonials-heading">Clients Feedback</h2>
+                </div>
+                <div class="testimonial-list">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">&ldquo;Neon Tile has significantly enhanced our projects. The combination of durability and visual appeal is exceptional.&rdquo;</div>
+                        <div class="testimonial-user">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jacob William profile" class="testimonial-avatar" />
+                            <div>
+                                <div class="testimonial-name">Jacob William</div>
+                                <div class="testimonial-role">CONSTRUCTION MANAGER</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">&ldquo;Working with Neon Tile has been a game-changer. Exceptional quality and reliability for our projects.&rdquo;</div>
+                        <div class="testimonial-user">
+                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Kelian Anderson profile" class="testimonial-avatar" />
+                            <div>
+                                <div class="testimonial-name">Kelian Anderson</div>
+                                <div class="testimonial-role">GENERAL CONTRACTOR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-image">
+                <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=60" alt="Decorative objects on marble tile" />
+            </div>
+        </div>
+    </section>
+
+    <section id="global-reach" class="global-reach" aria-labelledby="global-reach-heading">
+        <div class="container global-reach-grid">
+            <div class="global-reach-content">
+                <div class="section-head">
+                    <span class="badge light">Global Reach</span>
+                    <h2 id="global-reach-heading">Exporting Excellence Worldwide</h2>
+                </div>
+                <p>At Neon Tile, we take pride in being a trusted exporter of premium tiles, delivering quality and innovation to customers worldwide. Our streamlined export processes guarantee timely and hassle-free deliveries.</p>
+                <a href="#" class="btn export">Read More</a>
+            </div>
+            <div class="global-reach-image">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1200&q=60" alt="Container ship for global export" />
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-mark">Ganiyani</span> <span class="logo-sub">Enterprise</span>
+                </div>
+                <p>At Neon Tile, we bring you an exclusive selection of top-quality tiles tailored to elevate every space.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#catalogue">E-Catalogue</a></li>
+                    <li><a href="#export">Export</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#wall-tiles">Wall Tiles</a></li>
+                    <li><a href="#floor-tiles">Floor Tiles</a></li>
+                    <li><a href="#pgvt-tiles">PGVT Tiles</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-phone"></i> +91 94263 17559</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 96628 21319</li>
+                    <li><i class="fa-solid fa-envelope"></i> neontile@gmail.com</li>
+                    <li class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Office</h4>
+                <ul class="footer-office">
+                    <li><strong>Neon Tile</strong></li>
+                    <li>Office No-419, Forth Floor,</li>
+                    <li>Ishan Business Center,</li>
+                    <li>Morbi, Gujarat 363642, INDIA</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>2025 Neon Tile | Design &amp; Managed By : LLS - INDIA</span>
+        </div>
+    </footer>
+    <script src="main.js" defer></script>
+</body>
+</html>

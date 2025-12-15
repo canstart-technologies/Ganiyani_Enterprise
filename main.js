@@ -157,41 +157,41 @@
     const tileData = [
   {
     id: 1,
-    name: "Celestial White",
+    name: "The Architectural",
     type: "Carving Finish",
-    description: "A pristine white surface with subtle carving textures that reflect light beautifully, creating an airy and spacious feel.",
+    description: "Expand your perspective with Horizon Ivory. The distinct linear veining of this surface draws the eye horizontally, visually stretching the width of your room. With its clean, parallel lines and soft ivory hue, it offers a structured yet subtle backdrop for modern minimalist design.",
     image: "./assets/img-1.png",
     thumb: "./assets/img-1.png"
   },
   {
     id: 2,
-    name: "Golden Statuario",
-    type: "Carving Finish",
-    description: "Classic Italian marble aesthetics featuring deep golden veining and a tactile carving finish for a touch of royal elegance.",
+    name: "Elegant Vibe",
+    type: "Glossy Finish",
+    description: "A masterclass in monochrome elegance. Pietra Nobile offers a rich, velvety grey foundation that anchors your space in quiet luxury. The delicate interlacing of white quartz veins adds just the right amount of movement, creating a surface that feels both historic and delightfully current.",
     image: "./assets/img-2.png",
     thumb: "./assets/img-2.png"
   },
   {
     id: 3,
-    name: "Urban Concrete",
+    name: "Short & Modern",
     type: "Carving Finish",
-    description: "The raw beauty of concrete meets the sophistication of carving technology. Perfect for industrial-chic and minimalist interiors.",
+    description: "A curated selection of high-impact marble surfaces. Defined by their bold, clustered patterns and stunning depth, these textures are designed to make a statement. Explore the full palette of colors and redefine your interiors",
     image: "./assets/img-3.png",
     thumb: "./assets/img-3.png"
   },
   {
     id: 4,
-    name: "Royal Onyx",
-    type: "Carving Finish",
-    description: "Deep, translucent layers with a high-definition carving effect that adds depth and drama to feature walls and living areas.",
+    name: "Urban Vibe",
+    type: "Matt Finish",
+    description: "Redefine your workspace with the raw, understated elegance of Urban Bronze Concrete. This surface captures the cool, industrial essence of cement but warms it with deep copper and clay undertones. The smooth, matte finish provides a sleek foundation that is bold yet professional.",
     image: "./assets/img-4.png",
     thumb: "./assets/img-4.png"
   },
   {
     id: 5,
-    name: "Sandalwood Beige",
-    type: "Carving Finish",
-    description: "Warm earthy tones with a soft carving texture. This finish brings the serenity and warmth of nature into your living space.",
+    name: "Marble Canvas",
+    type: "Glassy Finish",
+    description: "Where nature meets art. The Marble Canvas series treats the floor as a masterpiece, showcasing intricate grey strokes against a porcelain-white background. The dynamic movement of the veins adds rhythm and energy to the room without overpowering the senses",
     image: "./assets/img-5.png",
     thumb: "./assets/img-5.png"
   }

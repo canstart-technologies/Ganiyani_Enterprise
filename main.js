@@ -94,41 +94,50 @@ if (cursorDot && cursorOutline) {
   checkNavbarScroll(); // Check on load
 })();
 
-// 1. Mobile Menu & Dropdowns
+// 1. Full Screen Menu Toggle
 (function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdownParents = document.querySelectorAll('.has-dropdown > button');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuText = document.querySelector('.menu-text');
+    const fsMenu = document.querySelector('.fs-menu');
+    const fsLinks = document.querySelectorAll('.fs-link');
+    const siteHeader = document.querySelector('.site-header');
   
-    // Mobile menu toggle
-    if(navToggle) {
-        navToggle.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', String(!expanded));
-            navMenu.classList.toggle('open');
-            // Change icon
-            navToggle.textContent = !expanded ? '✕' : '☰';
+    if(menuToggle && fsMenu) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = fsMenu.classList.contains('open');
+            
+            if (!isOpen) {
+                // Open Menu
+                fsMenu.classList.add('open');
+                menuToggle.classList.add('active');
+                if(siteHeader) siteHeader.classList.add('nav-open');
+                if(menuText) menuText.textContent = "Close";
+                
+                // GSAP Animation for Links
+                gsap.fromTo(fsLinks, 
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out", delay: 0.4 }
+                );
+            } else {
+                // Close Menu
+                fsMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+                if(siteHeader) siteHeader.classList.remove('nav-open');
+                if(menuText) menuText.textContent = "Menu";
+            }
+        });
+
+        // Close menu when a link is clicked
+        fsLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                fsMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+                if(siteHeader) siteHeader.classList.remove('nav-open');
+                if(menuText) menuText.textContent = "Menu";
+            });
         });
     }
-  
-    // Dropdown interactions
-    dropdownParents.forEach(btn => {
-      const parent = btn.parentElement;
-      // Click for mobile
-      btn.addEventListener('click', (e) => {
-        if (window.innerWidth <= 900) {
-           e.preventDefault(); // Stop link nav if it was a link
-           parent.classList.toggle('active');
-           const dropdown = parent.querySelector('.dropdown');
-           if(dropdown) {
-               dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-               dropdown.style.opacity = '1';
-               dropdown.style.transform = 'translateY(0)';
-           }
-        }
-      });
-    });
-  })();
+})();
   
   // 3. Number Counter Animation (Stats)
   (function() {
@@ -295,6 +304,9 @@ if (cursorDot && cursorOutline) {
     function animateHeroContent() {
         const tl = gsap.timeline();
         
+        // Ensure parent title is visible (since we animate children)
+        gsap.set(heroTitle, { opacity: 1 });
+
         // Animate Label
         tl.fromTo(heroLabel, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
         

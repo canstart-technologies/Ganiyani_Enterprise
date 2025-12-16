@@ -33,38 +33,65 @@
 
     <header class="site-header">
         <nav class="navbar" aria-label="Main navigation">
+            <!-- Left: Hidden or Small Icon (Optional) -->
             <div class="nav-left">
-                <a href="#" class="logo" aria-label="Neon Tile Home">
-                    <span class="logo-mark">Ganiyani</span><span class="logo-sub">Enterprise</span>
+                <!-- Placeholder for balance or small branding -->
+            </div>
+
+            <!-- Center: Big Logo -->
+            <div class="nav-center">
+                <a href="#" class="logo" aria-label="Ganiyani Enterprise Home">
+                    <span class="logo-mark">Ganiyani</span>
+                    <span class="logo-sub">Enterprise</span>
                 </a>
             </div>
-            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-            <ul class="nav-menu" role="menubar">
-                <li role="none"><a role="menuitem" href="#story">Our Story</a></li>
-                <li class="has-dropdown" role="none">
-                    <button role="menuitem" aria-haspopup="true" aria-expanded="false">Products <span class="caret">+</span></button>
-                    <ul class="dropdown" aria-label="Products submenu">
-                        <li><a href="#wall-tiles">Wall Tiles</a></li>
-                        <li><a href="#floor-tiles">Floor Tiles</a></li>
-                        <li><a href="#3d-tiles">3D Tiles</a></li>
-                    </ul>
-                </li>
-                <li role="none"><a role="menuitem" href="#catalogue">E-Catalogue</a></li>
-                <li role="none"><a role="menuitem" href="#export">Export</a></li>
-                <li class="has-dropdown" role="none">
-                    <button role="menuitem" aria-haspopup="true" aria-expanded="false">More <span class="caret">+</span></button>
-                    <ul class="dropdown" aria-label="More submenu">
-                        <li><a href="#blogs">Blogs</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </li>
-                <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
-                <li role="none" class="icon-item">
-                    <button class="icon-btn" aria-label="Search" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </li>
-            </ul>
+
+            <!-- Right: Menu Toggle -->
+            <div class="nav-right">
+                <button class="menu-toggle" aria-label="Open menu">
+                    <span class="menu-text">Menu</span>
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
         </nav>
     </header>
+
+    <!-- Full Screen Overlay Menu -->
+    <div class="fs-menu">
+        <div class="fs-menu-bg"></div>
+        <div class="fs-menu-container container">
+            <div class="fs-menu-grid">
+                <div class="fs-menu-col links">
+                    <span class="fs-label">Navigation</span>
+                    <ul class="fs-nav-list">
+                        <li><a href="#home" class="fs-link">Home <span class="fs-num">01</span></a></li>
+                        <li><a href="#about" class="fs-link">Our Story <span class="fs-num">02</span></a></li>
+                        <li><a href="#collection" class="fs-link">Collections <span class="fs-num">03</span></a></li>
+                        <li><a href="#export" class="fs-link">Global Reach <span class="fs-num">04</span></a></li>
+                        <li><a href="#contact" class="fs-link">Contact <span class="fs-num">05</span></a></li>
+                    </ul>
+                </div>
+                <div class="fs-menu-col info">
+                    <div class="fs-info-block">
+                        <span class="fs-label">Contact</span>
+                        <p>+91 94263 17559</p>
+                        <p>info@ganiyani.com</p>
+                    </div>
+                    <div class="fs-info-block">
+                        <span class="fs-label">Follow Us</span>
+                        <div class="fs-socials">
+                            <a href="#">Instagram</a>
+                            <a href="#">Facebook</a>
+                            <a href="#">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="hero-new" id="home">
         <!-- Background Layers (Populated by JS) -->

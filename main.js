@@ -77,13 +77,13 @@ if (cursorDot && cursorOutline) {
 // 0. Navbar Scroll Effect (Hide/Show on Hero)
 (function() {
   const header = document.querySelector('.site-header');
-  const heroSection = document.querySelector('.hero-new');
+  const heroSection = document.querySelector('.hero-new') || document.querySelector('.page-hero');
   
   if (!header || !heroSection) return;
 
   function checkNavbarScroll() {
     const heroBottom = heroSection.offsetHeight;
-    if (window.scrollY > heroBottom) {
+    if (window.scrollY > heroBottom - 100) { // Added offset for earlier trigger
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');

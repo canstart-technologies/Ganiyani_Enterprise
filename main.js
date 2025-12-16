@@ -173,11 +173,52 @@ if (cursorDot && cursorOutline) {
     });
   })();
 
-  // 4. New Interactive Hero Section
+  // 5. Mobile Filter Toggle
+  (function() {
+    const filterToggle = document.querySelector('.mobile-filter-toggle');
+    const sidebar = document.querySelector('.product-sidebar');
+    const closeBtn = document.querySelector('.close-sidebar-mobile');
+    const applyBtn = document.querySelector('.apply-filters');
+    
+    if (!filterToggle || !sidebar) return;
+
+    function openFilters() {
+        sidebar.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeFilters() {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    filterToggle.addEventListener('click', openFilters);
+    
+    if(closeBtn) closeBtn.addEventListener('click', closeFilters);
+    if(applyBtn) applyBtn.addEventListener('click', closeFilters);
+
+    // Close when clicking outside (on the pseudo-element overlay)
+    // Since the pseudo-element is part of the sidebar, we need to check click target
+    sidebar.addEventListener('click', (e) => {
+        // If the click is on the sidebar element itself (which might be the overlay area due to how CSS is structured)
+        // But in our CSS, the ::before is positioned relative to the sidebar. 
+        // A better way is to check if the click is NOT on the content.
+        // However, our CSS puts the ::before *outside* the visual sidebar width (left: 300px).
+        // So clicking on the overlay is actually clicking on the ::before element.
+        
+        // Let's use a simpler approach: check if click X coordinate is > 300px (sidebar width)
+        const sidebarWidth = sidebar.offsetWidth;
+        if (e.offsetX > sidebarWidth) {
+            closeFilters();
+        }
+    });
+  })();
+
+  // 4. Hero Section Logic
   (function() {
     const tileData = [
-  {
-    id: 1,
+      {
+        id: 1,
     name: "The Architectural",
     type: "Carving Finish",
     description: "Expand your perspective with Horizon Ivory. The distinct linear veining of this surface draws the eye horizontally, visually stretching the width of your room. With its clean, parallel lines and soft ivory hue, it offers a structured yet subtle backdrop for modern minimalist design.",
@@ -378,7 +419,41 @@ if (cursorDot && cursorOutline) {
     initHero();
   })();
 
-// 5. General Scroll Animations (Fade Up)
+  // 5. Mobile Filter Toggle
+  (function() {
+    const filterToggle = document.querySelector('.mobile-filter-toggle');
+    const sidebar = document.querySelector('.product-sidebar');
+    const closeBtn = document.querySelector('.close-sidebar-mobile');
+    const applyBtn = document.querySelector('.apply-filters');
+    
+    if (!filterToggle || !sidebar) return;
+
+    function openFilters() {
+        sidebar.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeFilters() {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    filterToggle.addEventListener('click', openFilters);
+    
+    if(closeBtn) closeBtn.addEventListener('click', closeFilters);
+    if(applyBtn) applyBtn.addEventListener('click', closeFilters);
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (sidebar.classList.contains('active') && 
+            !sidebar.contains(e.target) && 
+            !filterToggle.contains(e.target)) {
+            closeFilters();
+        }
+    });
+  })();
+
+// 6. General Scroll Animations (Fade Up)
 gsap.utils.toArray('section h2, section p, .about-media, .product-card').forEach(element => {
     gsap.from(element, {
         scrollTrigger: {

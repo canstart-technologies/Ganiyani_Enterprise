@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore our exclusive collection of premium Wall Tiles, Floor Tiles, Porcelain, and PGVT. Ganiyani Enterprise - Quality you can trust.">
+    <meta name="author" content="Ganiyani Enterprise">
+    <title>Our Products | Ganiyani Enterprise</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Lenis for Smooth Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.0.45/dist/lenis.css">
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <span class="loader-text">Ganiyani</span>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <!-- Left: Placeholder -->
+            <div class="nav-left"></div>
+
+            <!-- Center: Big Logo -->
+            <div class="nav-center">
+                <a href="index.html" class="logo" aria-label="Ganiyani Enterprise Home">
+                    <span class="logo-mark">Ganiyani</span>
+                    <span class="logo-sub">Enterprise</span>
+                </a>
+            </div>
+
+            <!-- Right: Menu Toggle -->
+            <div class="nav-right">
+                <button class="menu-toggle" aria-label="Open menu">
+                    <span class="menu-text">Menu</span>
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full Screen Overlay Menu -->
+    <div class="fs-menu">
+        <div class="fs-menu-bg"></div>
+        <div class="fs-menu-container container">
+            <div class="fs-menu-grid">
+                <div class="fs-menu-col links">
+                    <span class="fs-label">Navigation</span>
+                    <ul class="fs-nav-list">
+                        <li><a href="index.html" class="fs-link">Home <span class="fs-num">01</span></a></li>
+                        <li><a href="our-story.html" class="fs-link">Our Story <span class="fs-num">02</span></a></li>
+                        <li><a href="products.html" class="fs-link">Collections <span class="fs-num">03</span></a></li>
+                        <li><a href="index.html#export" class="fs-link">Global Reach <span class="fs-num">04</span></a></li>
+                        <li><a href="index.html#contact" class="fs-link">Contact <span class="fs-num">05</span></a></li>
+                    </ul>
+                </div>
+                <div class="fs-menu-col info">
+                    <div class="fs-info-block">
+                        <span class="fs-label">Contact</span>
+                        <p>+91 94263 17559</p>
+                        <p>info@ganiyani.com</p>
+                    </div>
+                    <div class="fs-info-block">
+                        <span class="fs-label">Follow Us</span>
+                        <div class="fs-socials">
+                            <a href="#">Instagram</a>
+                            <a href="#">Facebook</a>
+                            <a href="#">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('./assets/img-1.png');">
+        <div class="page-hero-content container">
+            <span class="page-hero-subtitle">Catalogue</span>
+            <h1 class="page-hero-title">Our Collection</h1>
+        </div>
+    </section>
+
+    <!-- Product Layout Section -->
+    <section class="product-layout-section">
+        <div class="container product-layout-grid">
+            
+            <!-- Mobile Filter Toggle -->
+            <button class="mobile-filter-toggle" aria-label="Open Filters">
+                <i class="fa-solid fa-filter"></i>
+            </button>
+
+            <!-- Sidebar Filter -->
+            <aside class="product-sidebar">
+                <div class="sidebar-header">
+                    <h3>Filters</h3>
+                    <button class="close-sidebar-mobile" aria-label="Close Filters"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="filter-group">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products..." />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Categories</h4>
+                    <ul class="filter-list">
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="wall-tiles">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Wall Tiles</span>
+                                <span class="count">(12)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="floor-tiles">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Floor Tiles</span>
+                                <span class="count">(8)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="porcelain">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Porcelain Tiles</span>
+                                <span class="count">(15)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="pgvt">
+                                <span class="checkmark"></span>
+                                <span class="label-text">PGVT / GVT</span>
+                                <span class="count">(6)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="parking">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Parking Tiles</span>
+                                <span class="count">(4)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="category" value="slabs">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Large Slabs</span>
+                                <span class="count">(3)</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Finish</h4>
+                    <ul class="filter-list">
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="finish" value="glossy">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Glossy</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="finish" value="matt">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Matt</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="finish" value="carving">
+                                <span class="checkmark"></span>
+                                <span class="label-text">Carving</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="finish" value="high-gloss">
+                                <span class="checkmark"></span>
+                                <span class="label-text">High Gloss</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-footer-mobile">
+                    <button class="btn blue apply-filters">Apply Filters</button>
+                    <button class="clear-filters-mobile">Clear All</button>
+                </div>
+            </aside>
+
+            <!-- Product Grid Area -->
+            <main class="product-main">
+                <div class="product-toolbar">
+                    <div class="results-count">Showing <span>9</span> of <span>48</span> Products</div>
+                    <div class="toolbar-actions">
+                        <div class="sort-dropdown">
+                            <select>
+                                <option value="default">Default Sorting</option>
+                                <option value="newest">Newest First</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="active" aria-label="Grid View"><i class="fa-solid fa-border-all"></i></button>
+                            <button aria-label="List View"><i class="fa-solid fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product Card 1 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-1.png" alt="Statuario Marble Tile">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                            <span class="badge-new">New</span>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">Porcelain</span>
+                            <h3 class="card-title"><a href="#">Statuario Classic</a></h3>
+                            <div class="card-meta">600x1200mm • Glossy</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 2 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-2.png" alt="Armani Grey Tile">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">PGVT</span>
+                            <h3 class="card-title"><a href="#">Armani Grey</a></h3>
+                            <div class="card-meta">800x1600mm • High Gloss</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 3 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-3.png" alt="Travertino Beige">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">Wall Tiles</span>
+                            <h3 class="card-title"><a href="#">Travertino Beige</a></h3>
+                            <div class="card-meta">300x600mm • Matt</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 4 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-4.png" alt="Black Marquina">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">Large Slabs</span>
+                            <h3 class="card-title"><a href="#">Black Marquina</a></h3>
+                            <div class="card-meta">1200x2400mm • Polished</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 5 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-5.png" alt="Onyx Blue">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                            <span class="badge-new">Trending</span>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">Porcelain</span>
+                            <h3 class="card-title"><a href="#">Onyx Blue</a></h3>
+                            <div class="card-meta">600x1200mm • High Gloss</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 6 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <img src="./assets/img-1.png" alt="Concrete Grey">
+                            <div class="card-actions">
+                                <button class="action-btn" aria-label="Quick View"><i class="fa-regular fa-eye"></i></button>
+                                <button class="action-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <span class="card-category">Floor Tiles</span>
+                            <h3 class="card-title"><a href="#">Concrete Grey</a></h3>
+                            <div class="card-meta">600x600mm • Matt</div>
+                            <a href="#" class="btn-link">View Details</a>
+                        </div>
+                    </article>
+
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <span class="page-dots">...</span>
+                    <a href="#" class="page-link next"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-mark">Ganiyani</span> <span class="logo-sub">Enterprise</span>
+                </div>
+                <p>At Ganiyani Enterprise, we bring you an exclusive selection of top-quality tiles tailored to elevate every space.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="#">E-Catalogue</a></li>
+                    <li><a href="index.html#export">Export</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Wall Tiles</a></li>
+                    <li><a href="#">Floor Tiles</a></li>
+                    <li><a href="#">PGVT Tiles</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-phone"></i> +91 94263 17559</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 96628 21319</li>
+                    <li><i class="fa-solid fa-envelope"></i> example@gmail.com</li>
+                    <li class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Office</h4>
+                <ul class="footer-office">
+                    <li><strong>Ganiyani Enterprise</strong></li>
+                    <li>Bhavnagar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>2025 Ganiyani Enterprise | Design by canstart technology</span>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

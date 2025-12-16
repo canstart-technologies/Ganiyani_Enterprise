@@ -482,3 +482,32 @@ if (aboutImage) {
         ease: "none"
     });
 }
+
+// 7. Enquire Modal Logic
+(function() {
+    const modal = document.getElementById("enquireModal");
+    const btn = document.querySelector(".trigger-enquire");
+    const span = document.querySelector(".close-modal");
+    
+    if (!modal || !btn) return;
+
+    btn.onclick = function(e) {
+        e.preventDefault();
+        modal.classList.add("show");
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (span) {
+        span.onclick = function() {
+            modal.classList.remove("show");
+            document.body.style.overflow = '';
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.classList.remove("show");
+            document.body.style.overflow = '';
+        }
+    }
+})();

@@ -141,7 +141,8 @@ if (cursorDot && cursorOutline) {
   
   // 3. Number Counter Animation (Stats)
   (function() {
-    const values = document.querySelectorAll('.stats .value');
+    // Updated selector to match global-reach.html structure
+    const values = document.querySelectorAll('.stat-number, .stats .value');
     if (!values.length) return;
   
     // Use ScrollTrigger for stats
